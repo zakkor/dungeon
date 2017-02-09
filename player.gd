@@ -74,10 +74,7 @@ func _on_hit_timer_timeout():
 	var bodies = area.get_overlapping_bodies()
 	for b in bodies:
 		if b.is_in_group("enemy"):
-			b.apply_impulse(Vector2(0, 0), Vector2(4, 4) * (b.get_global_pos() - get_global_pos()))
-			b.health -= 30;
-			b.get_node("AnimatedSprite").play("grunt")
-			print(b.health)
+			b.get_hit(get_global_pos(), 30)
 		else:
 			print(typeof(b))
 		pass

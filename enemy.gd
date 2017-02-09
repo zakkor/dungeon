@@ -2,9 +2,21 @@ extends RigidBody2D
 
 onready var sprite = get_node("AnimatedSprite")
 onready var healthbar = get_node("TextureProgress")
+onready var blood = get_node("Particles2D")
+onready var timer = get_node("Timer")
+
+
 
 const SPEED = 30
 var health = 100
+
+func get_hit(location, damage):
+	apply_impulse(Vector2(0, 0), Vector2(4, 4) * (get_global_pos() - location))
+	health -= 30;
+	sprite.play("grunt")
+	blood.set_emitting(true)
+	timer.start()
+	pass
 
 func _ready():
 	set_process(true)
@@ -27,3 +39,8 @@ func _on_AnimatedSprite_finished():
 	if sprite.get_animation() == "grunt":
 		sprite.stop()
 		sprite.play("idle")
+
+
+func _on_Timer_timeout():
+	blood.set_emitting(false)
+	timer.stop()

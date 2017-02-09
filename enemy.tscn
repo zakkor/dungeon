@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=1]
+[gd_scene load_steps=47 format=1]
 
 [ext_resource path="res://enemy.gd" type="Script" id=1]
 [ext_resource path="res://anims/enemy/minotaur/idle/0.png" type="Texture" id=2]
@@ -43,6 +43,7 @@
 [ext_resource path="res://anims/enemy/minotaur/grunt/9.png" type="Texture" id=41]
 [ext_resource path="res://bloodbar/blood_red_bar.png" type="Texture" id=42]
 [ext_resource path="res://bloodbar/progress.png" type="Texture" id=43]
+[ext_resource path="res://blood.png" type="Texture" id=44]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -82,7 +83,6 @@ script/script = ExtResource( 1 )
 
 frames = SubResource( 2 )
 animation = "idle"
-frame = 3
 playing = true
 offset = Vector2( 0, -8 )
 
@@ -117,6 +117,38 @@ texture/progress = ExtResource( 43 )
 radial_fill/fill_degrees = 360.0
 radial_fill/center_offset = Vector2( 0, 0 )
 
+[node name="Timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 0.2
+one_shot = false
+autostart = false
+
+[node name="Particles2D" type="Particles2D" parent="."]
+
+config/amount = 50
+config/lifetime = 1.0
+config/emitting = false
+config/texture = ExtResource( 44 )
+params/direction = 0.0
+params/spread = 180.0
+params/linear_velocity = 40.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 0.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 1.0
+params/final_size = 0.5
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+
 [connection signal="finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_finished"]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 
