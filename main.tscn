@@ -62,6 +62,12 @@ __meta__ = { "_edit_lock_":true }
 transform/pos = Vector2( 327.048, 60.2433 )
 transform/rot = 1.00179e-05
 
+[node name="minotaur1" parent="walls" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 324.908, 94.4903 )
+transform/rot = 1.00179e-05
+transform/scale = Vector2( 1, 1 )
+
 [node name="player" parent="walls" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 289, 52.9653 )
