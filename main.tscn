@@ -1,0 +1,138 @@
+[gd_scene load_steps=10 format=1]
+
+[ext_resource path="res://main.gd" type="Script" id=1]
+[ext_resource path="res://tilesets/tileset_floors.tres" type="TileSet" id=2]
+[ext_resource path="res://tilesets/tileset_walls.tres" type="TileSet" id=3]
+[ext_resource path="res://enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://torch.tscn" type="PackedScene" id=6]
+[ext_resource path="res://tilesets/tileset_ceilings.tres" type="TileSet" id=7]
+[ext_resource path="res://hudfont.fnt" type="BitmapFont" id=8]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends Node2D\n\n \nvar path = [] # path from the main script\n \nfunc _draw():\n\tvar col = Color(255,0,0,1)\n \n\t# for each path point\n\tfor i in range( path.size() ):\n\t\t#if i > 0:\n\t\tdraw_circle(path[i], 3, col)\n\t\t\t#draw_line( path[i-1], path[i], col )"
+
+[node name="game" type="Node2D"]
+
+script/script = ExtResource( 1 )
+
+[node name="floors" type="TileMap" parent="."]
+
+transform/pos = Vector2( 16, 16 )
+mode = 0
+tile_set = ExtResource( 2 )
+cell/size = Vector2( 16, 16 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( 65537, 2, 65538, 9, 65539, 9, 65540, 9, 65541, 9, 65542, 3, 65547, 71, 65548, 71, 65549, 71, 65550, 71, 65551, 71, 65552, 70, 65553, 70, 65554, 70, 65555, 70, 65556, 70, 65557, 70, 65558, 70, 65559, 70, 65560, 70, 131073, 7, 131075, 53, 131083, 71, 131084, 71, 131085, 71, 131086, 71, 131087, 71, 131088, 70, 131089, 70, 131090, 70, 131091, 70, 131092, 70, 131093, 70, 131094, 70, 131095, 70, 131096, 70, 196609, 8, 196611, 16, 196619, 71, 196620, 71, 196621, 71, 196622, 71, 196623, 71, 196624, 70, 196625, 70, 196626, 70, 196627, 70, 196628, 70, 196629, 70, 196630, 70, 196631, 70, 196632, 70, 262145, 8, 262146, 54, 262147, 16, 262155, 71, 262156, 71, 262157, 71, 262158, 71, 262159, 71, 262160, 70, 262161, 70, 262162, 70, 262163, 70, 262164, 70, 262165, 70, 262166, 70, 262167, 70, 262168, 70, 327681, 8, 327682, 57, 327683, 16, 327685, 27, 327686, 23, 327687, 23, 327688, 23, 327689, 23, 327690, 23, 327691, 71, 327692, 71, 327693, 71, 327694, 71, 327695, 71, 327696, 70, 327697, 70, 327698, 70, 327699, 70, 327700, 70, 327701, 70, 327702, 70, 327703, 70, 327704, 70, 393217, 31, 393221, 25, 393227, 71, 393228, 71, 393229, 71, 393230, 71, 393231, 71, 393232, 70, 393233, 70, 393234, 70, 393235, 70, 393236, 70, 393237, 70, 393238, 70, 393239, 70, 393240, 70, 458753, 24, 458757, 25, 458763, 71, 458764, 71, 458765, 71, 458766, 71, 458767, 71, 458768, 70, 458769, 70, 458770, 70, 458771, 70, 458772, 70, 458773, 70, 458774, 70, 458775, 70, 458776, 70, 524289, 24, 524293, 25, 524299, 71, 524300, 71, 524301, 71, 524302, 71, 524303, 71, 589825, 33, 589826, 11, 589827, 11, 589828, 11, 589829, 54, 589830, 3, 655361, 4, 655362, 13, 655363, 13, 655364, 13, 655365, 13, 655366, 30 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="walls" type="TileMap" parent="."]
+
+transform/pos = Vector2( 16, 16 )
+mode = 0
+tile_set = ExtResource( 3 )
+cell/size = Vector2( 16, 16 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = true
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 3
+tile_data = IntArray( -65535, 0, -65534, 1, -65533, 4, -65532, 2, -65531, 3, -65530, 5, -65525, 0, -65524, 3, -65523, 4, -65522, 3, -65521, 5, -65520, 1, -65519, 1, -65518, 1, -65517, 1, -65516, 1, -65515, 1, -65514, 1, -65513, 1, -65512, 1, 131074, 6, 196613, 0, 196614, 1, 196615, 4, 196616, 4, 196617, 2, 196618, 4, 458754, 0, 458755, 1, 458756, 5, 458758, 0 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="minotaur" parent="walls" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 327.048, 60.2433 )
+transform/rot = 1.00179e-05
+
+[node name="player" parent="walls" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 289, 52.9653 )
+
+[node name="torch1" parent="walls" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 131.278, 53.4243 )
+
+[node name="torch2" parent="walls" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 215.88, -6.4427 )
+
+[node name="torch" parent="walls" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 40.3743, 35.7015 )
+
+[node name="ceil" type="TileMap" parent="."]
+
+visibility/light_mask = 0
+transform/pos = Vector2( 16, 16 )
+mode = 0
+tile_set = ExtResource( 7 )
+cell/size = Vector2( 16, 16 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = true
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( -131072, 52, -131071, 11, -131070, 12, -131069, 11, -131068, 13, -131067, 11, -131066, 11, -131065, 51, -131062, 1, -131061, 21, -131060, 21, -131059, 21, -131058, 21, -131057, 21, -131056, 2, -131055, 1, -131054, 1, -131053, 1, -131052, 1, -131051, 1, -131050, 1, -131049, 1, -131048, 1, -131047, 1, -65536, 14, -65529, 5, -65526, 16, -65511, 1, 0, 14, 7, 6, 10, 16, 25, 1, 65536, 14, 65538, 25, 65543, 7, 65546, 16, 65561, 1, 131072, 14, 131076, 26, 131077, 22, 131078, 21, 131079, 41, 131080, 21, 131081, 22, 131082, 4, 196608, 14, 196612, 23, 262144, 14, 262148, 24, 262150, 1, 262151, 9, 262152, 10, 262153, 8, 262154, 2, 327680, 14, 327684, 23, 327686, 5, 327687, 0, 327688, 0, 327689, 0, 327690, 16, 393216, 14, 393218, 17, 393219, 21, 393220, 29, 393222, 3, 393223, 51, 393226, 16, 458752, 14, 458759, 5, 458762, 16, 524288, 14, 524295, 5, 524298, 3, 524299, 21, 524300, 21, 524301, 21, 524302, 21, 524303, 21, 524304, 4, 524305, 1, 524306, 1, 524307, 1, 524308, 1, 589824, 14, 589831, 5, 655360, 14, 655367, 6, 720896, 50, 720897, 9, 720898, 10, 720899, 9, 720900, 9, 720901, 10, 720902, 9, 720903, 49 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+color = Color( 0.40625, 0.40625, 0.40625, 1 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="PathDraw" type="Node2D" parent="."]
+
+transform/pos = Vector2( 16, 16 )
+script/script = SubResource( 1 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 4, 4 )
+
+[node name="interact" type="Label" parent="HUD"]
+
+visibility/visible = false
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 128.0
+margin/top = 129.0
+margin/right = 264.0
+margin/bottom = 144.0
+custom_fonts/font = ExtResource( 8 )
+text = "Press E to interact."
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+

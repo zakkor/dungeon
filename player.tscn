@@ -1,0 +1,160 @@
+[gd_scene load_steps=36 format=1]
+
+[ext_resource path="res://player.gd" type="Script" id=1]
+[ext_resource path="res://anims/warr/walk/0.png" type="Texture" id=2]
+[ext_resource path="res://anims/warr/walk/1.png" type="Texture" id=3]
+[ext_resource path="res://anims/warr/walk/2.png" type="Texture" id=4]
+[ext_resource path="res://anims/warr/walk/3.png" type="Texture" id=5]
+[ext_resource path="res://anims/warr/walk/4.png" type="Texture" id=6]
+[ext_resource path="res://anims/warr/walk/5.png" type="Texture" id=7]
+[ext_resource path="res://anims/warr/walk/6.png" type="Texture" id=8]
+[ext_resource path="res://anims/warr/walk/7.png" type="Texture" id=9]
+[ext_resource path="res://anims/warr/walk/8.png" type="Texture" id=10]
+[ext_resource path="res://anims/warr/walk/9.png" type="Texture" id=11]
+[ext_resource path="res://anims/warr/attack/0.png" type="Texture" id=12]
+[ext_resource path="res://anims/warr/attack/1.png" type="Texture" id=13]
+[ext_resource path="res://anims/warr/attack/2.png" type="Texture" id=14]
+[ext_resource path="res://anims/warr/attack/3.png" type="Texture" id=15]
+[ext_resource path="res://anims/warr/attack/4.png" type="Texture" id=16]
+[ext_resource path="res://anims/warr/attack/5.png" type="Texture" id=17]
+[ext_resource path="res://anims/warr/attack/6.png" type="Texture" id=18]
+[ext_resource path="res://anims/warr/attack/7.png" type="Texture" id=19]
+[ext_resource path="res://anims/warr/attack/8.png" type="Texture" id=20]
+[ext_resource path="res://anims/warr/attack/9.png" type="Texture" id=21]
+[ext_resource path="res://anims/warr/idle/0.png" type="Texture" id=22]
+[ext_resource path="res://anims/warr/idle/1.png" type="Texture" id=23]
+[ext_resource path="res://anims/warr/idle/2.png" type="Texture" id=24]
+[ext_resource path="res://anims/warr/idle/3.png" type="Texture" id=25]
+[ext_resource path="res://anims/warr/idle/4.png" type="Texture" id=26]
+[ext_resource path="res://anims/warr/idle/5.png" type="Texture" id=27]
+[ext_resource path="res://anims/warr/idle/6.png" type="Texture" id=28]
+[ext_resource path="res://anims/warr/idle/7.png" type="Texture" id=29]
+[ext_resource path="res://anims/warr/idle/8.png" type="Texture" id=30]
+[ext_resource path="res://anims/warr/idle/9.png" type="Texture" id=31]
+[ext_resource path="res://spot.png" type="Texture" id=32]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -4, 12, 4, 12, 4, 16, -4, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 8.67797, -6.4, 8.67797, 19.2, -8.67797, 19.2, -8.67797, -6.4 )
+
+[sub_resource type="SpriteFrames" id=3]
+
+animations = [ { "frames":[ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ], "loop":true, "name":"walk", "speed":15.0 }, { "frames":[ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ], "loop":false, "name":"attack", "speed":20.0 }, { "frames":[ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ], "loop":false, "name":"idle", "speed":5.0 } ]
+
+[node name="player" type="KinematicBody2D"]
+
+transform/pos = Vector2( 0, 8 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 8 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+script/script = ExtResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+transform/scale = Vector2( 0.921875, 1.25 )
+input/pickable = true
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 18, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+
+transform/pos = Vector2( 18, 0 )
+build_mode = 0
+polygon = Vector2Array( -8.67797, -6.4, -8.67797, 19.2, 8.67797, 19.2, 8.67797, -6.4 )
+shape_range = Vector2( 0, 0 )
+trigger = false
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+
+transform/pos = Vector2( 0, 8 )
+frames = SubResource( 3 )
+animation = "walk"
+
+[node name="camera" type="Camera2D" parent="."]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 0.25, 0.25 )
+limit/left = -10000000
+limit/top = -10000000
+limit/right = 10000000
+limit/bottom = 10000000
+drag_margin/h_enabled = false
+drag_margin/v_enabled = false
+smoothing/enable = true
+smoothing/speed = 2.0
+drag_margin/left = 0.2
+drag_margin/top = 0.2
+drag_margin/right = 0.2
+drag_margin/bottom = 0.2
+__meta__ = { "_edit_lock_":true }
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+transform/pos = Vector2( 0, 8 )
+build_mode = 0
+polygon = Vector2Array( -4, 12, 4, 12, 4, 16, -4, 16 )
+shape_range = Vector2( 0, 0 )
+trigger = false
+
+[node name="Light2D" type="Light2D" parent="."]
+
+transform/pos = Vector2( 0, 3 )
+enabled = true
+editor_only = false
+texture = ExtResource( 32 )
+offset = Vector2( 0, 0 )
+scale = 1.3
+color = Color( 1, 1, 1, 1 )
+energy = 0.67
+mode = 0
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 1
+shadow/enabled = true
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 1.0
+shadow/item_mask = 1
+__meta__ = { "_edit_lock_":true }
+
+[node name="idle_timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 3.0
+one_shot = false
+autostart = true
+
+[node name="hit_timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 0.35
+one_shot = false
+autostart = false
+
+[connection signal="finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_finished"]
+
+[connection signal="timeout" from="idle_timer" to="." method="_on_idle_timer_timeout"]
+
+[connection signal="timeout" from="hit_timer" to="." method="_on_hit_timer_timeout"]
+
+
