@@ -1,16 +1,16 @@
-[gd_scene load_steps=44 format=1]
+[gd_scene load_steps=46 format=1]
 
 [ext_resource path="res://enemy.gd" type="Script" id=1]
-[ext_resource path="res://anims/enemy/minotaur/grunt/0.png" type="Texture" id=2]
-[ext_resource path="res://anims/enemy/minotaur/grunt/1.png" type="Texture" id=3]
-[ext_resource path="res://anims/enemy/minotaur/grunt/2.png" type="Texture" id=4]
-[ext_resource path="res://anims/enemy/minotaur/grunt/3.png" type="Texture" id=5]
-[ext_resource path="res://anims/enemy/minotaur/grunt/4.png" type="Texture" id=6]
-[ext_resource path="res://anims/enemy/minotaur/grunt/5.png" type="Texture" id=7]
-[ext_resource path="res://anims/enemy/minotaur/grunt/6.png" type="Texture" id=8]
-[ext_resource path="res://anims/enemy/minotaur/grunt/7.png" type="Texture" id=9]
-[ext_resource path="res://anims/enemy/minotaur/grunt/8.png" type="Texture" id=10]
-[ext_resource path="res://anims/enemy/minotaur/grunt/9.png" type="Texture" id=11]
+[ext_resource path="res://anims/enemy/minotaur/idle/0.png" type="Texture" id=2]
+[ext_resource path="res://anims/enemy/minotaur/idle/1.png" type="Texture" id=3]
+[ext_resource path="res://anims/enemy/minotaur/idle/2.png" type="Texture" id=4]
+[ext_resource path="res://anims/enemy/minotaur/idle/3.png" type="Texture" id=5]
+[ext_resource path="res://anims/enemy/minotaur/idle/4.png" type="Texture" id=6]
+[ext_resource path="res://anims/enemy/minotaur/idle/5.png" type="Texture" id=7]
+[ext_resource path="res://anims/enemy/minotaur/idle/6.png" type="Texture" id=8]
+[ext_resource path="res://anims/enemy/minotaur/idle/7.png" type="Texture" id=9]
+[ext_resource path="res://anims/enemy/minotaur/idle/8.png" type="Texture" id=10]
+[ext_resource path="res://anims/enemy/minotaur/idle/9.png" type="Texture" id=11]
 [ext_resource path="res://anims/enemy/minotaur/die/0.png" type="Texture" id=12]
 [ext_resource path="res://anims/enemy/minotaur/die/1.png" type="Texture" id=13]
 [ext_resource path="res://anims/enemy/minotaur/die/2.png" type="Texture" id=14]
@@ -31,16 +31,18 @@
 [ext_resource path="res://anims/enemy/minotaur/walk/7.png" type="Texture" id=29]
 [ext_resource path="res://anims/enemy/minotaur/walk/8.png" type="Texture" id=30]
 [ext_resource path="res://anims/enemy/minotaur/walk/9.png" type="Texture" id=31]
-[ext_resource path="res://anims/enemy/minotaur/idle/0.png" type="Texture" id=32]
-[ext_resource path="res://anims/enemy/minotaur/idle/1.png" type="Texture" id=33]
-[ext_resource path="res://anims/enemy/minotaur/idle/2.png" type="Texture" id=34]
-[ext_resource path="res://anims/enemy/minotaur/idle/3.png" type="Texture" id=35]
-[ext_resource path="res://anims/enemy/minotaur/idle/4.png" type="Texture" id=36]
-[ext_resource path="res://anims/enemy/minotaur/idle/5.png" type="Texture" id=37]
-[ext_resource path="res://anims/enemy/minotaur/idle/6.png" type="Texture" id=38]
-[ext_resource path="res://anims/enemy/minotaur/idle/7.png" type="Texture" id=39]
-[ext_resource path="res://anims/enemy/minotaur/idle/8.png" type="Texture" id=40]
-[ext_resource path="res://anims/enemy/minotaur/idle/9.png" type="Texture" id=41]
+[ext_resource path="res://anims/enemy/minotaur/grunt/0.png" type="Texture" id=32]
+[ext_resource path="res://anims/enemy/minotaur/grunt/1.png" type="Texture" id=33]
+[ext_resource path="res://anims/enemy/minotaur/grunt/2.png" type="Texture" id=34]
+[ext_resource path="res://anims/enemy/minotaur/grunt/3.png" type="Texture" id=35]
+[ext_resource path="res://anims/enemy/minotaur/grunt/4.png" type="Texture" id=36]
+[ext_resource path="res://anims/enemy/minotaur/grunt/5.png" type="Texture" id=37]
+[ext_resource path="res://anims/enemy/minotaur/grunt/6.png" type="Texture" id=38]
+[ext_resource path="res://anims/enemy/minotaur/grunt/7.png" type="Texture" id=39]
+[ext_resource path="res://anims/enemy/minotaur/grunt/8.png" type="Texture" id=40]
+[ext_resource path="res://anims/enemy/minotaur/grunt/9.png" type="Texture" id=41]
+[ext_resource path="res://bloodbar/blood_red_bar.png" type="Texture" id=42]
+[ext_resource path="res://bloodbar/progress.png" type="Texture" id=43]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -49,7 +51,7 @@ points = Vector2Array( -8, -8, 8, -8, 8, 16, -8, 16 )
 
 [sub_resource type="SpriteFrames" id=2]
 
-animations = [ { "frames":[ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ], "loop":false, "name":"grunt", "speed":15.0 }, { "frames":[ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ], "loop":false, "name":"die", "speed":5.0 }, { "frames":[ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ], "loop":true, "name":"walk", "speed":15.0 }, { "frames":[ ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ) ], "loop":true, "name":"idle", "speed":5.0 } ]
+animations = [ { "frames":[ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ], "loop":true, "name":"idle", "speed":5.0 }, { "frames":[ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ], "loop":false, "name":"die", "speed":5.0 }, { "frames":[ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ], "loop":true, "name":"walk", "speed":15.0 }, { "frames":[ ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ) ], "loop":false, "name":"grunt", "speed":15.0 } ]
 
 [node name="enemy" type="RigidBody2D" groups=[ "enemy" ]]
 
@@ -80,7 +82,7 @@ script/script = ExtResource( 1 )
 
 frames = SubResource( 2 )
 animation = "idle"
-frame = 7
+frame = 3
 playing = true
 offset = Vector2( 0, -8 )
 
@@ -90,6 +92,30 @@ build_mode = 0
 polygon = Vector2Array( -8, -8, 8, -8, 8, 16, -8, 16 )
 shape_range = Vector2( 0, 0 )
 trigger = false
+
+[node name="TextureProgress" type="TextureProgress" parent="."]
+
+rect/scale = Vector2( 0.125, 0.125 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -17.0
+margin/top = -23.0
+margin/right = 283.0
+margin/bottom = 17.0
+range/min = 0.0
+range/max = 100.0
+range/step = 1.0
+range/page = 0.0
+range/value = 100.0
+range/exp_edit = false
+range/rounded = false
+texture/under = ExtResource( 42 )
+texture/over = null
+texture/progress = ExtResource( 43 )
+radial_fill/fill_degrees = 360.0
+radial_fill/center_offset = Vector2( 0, 0 )
 
 [connection signal="finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_finished"]
 
