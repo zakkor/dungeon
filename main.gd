@@ -17,14 +17,20 @@ func _ready():
 	set_fixed_process(true)
 
 func _fixed_process(delta):
-	var space_state = get_world_2d().get_direct_space_state()
-	#var result = space_state.intersect_ray(enemy.get_global_pos(), player.get_global_pos(), [enemy])
-	#if (not result.empty()):
-		#print("Hit at point: ", result.position)
-		#enemy.set_fixed_process(false)
-		#pass
-	#else:
-		#pass
+	
+		
+	for e in enemies:
+		var space_state = get_world_2d().get_direct_space_state()
+		var result = space_state.intersect_ray(e.get_global_pos(), player.get_global_pos(), [e])
+		if (not result.empty()):
+			#print("Hit at point: ", result.position)
+			#enemy.set_fixed_process(false)
+			pass
+		else:
+			if e.get_global_pos().distance_to(player.get_global_pos()) > 32:
+				e.move_towards(player.get_global_pos())
+			else:
+				e.attack()
 
 
 func _input(event):
