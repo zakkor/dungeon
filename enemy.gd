@@ -6,6 +6,7 @@ onready var blood = get_node("Particles2D")
 onready var retaliate_timer = get_node("RetaliateTimer")
 onready var atk_timer = get_node("AttackTimer")
 onready var cd_timer = get_node("CdTimer")
+onready var hurtbox = get_node("Area2D")
 
 const SPEED = 30
 var health = 100
@@ -38,8 +39,11 @@ func move_towards(location):
 		apply_impulse(Vector2(0, 0), Vector2(0.1, 0.1) * (location - get_global_pos()))
 		if (location - get_global_pos()).x > 0:
 			sprite.set_flip_h(true)
+			hurtbox.get_node("Hurtbox").set_pos(Vector2(20, 0))
+			
 		else:
 			sprite.set_flip_h(false)
+			hurtbox.get_node("Hurtbox").set_pos(Vector2(-20, 0))
 	
 
 func attack():
@@ -47,6 +51,7 @@ func attack():
 		if cd_timer.get_time_left() == 0:
 			sprite.stop()
 			sprite.play("atk")
+			atk_timer.start()
 			cd_timer.start()
 
 func _process(delta):
@@ -78,6 +83,12 @@ func _on_RetaliateTimer_timeout():
 
 
 func _on_AttackTimer_timeout():
-	#print("enemy hit!")
-	#sprite.stop()
-	pass
+	print("enemy hit!")
+	var bodies = hurtbox.get_overlapping_bodies()
+	for b in bodies:
+		
+		if b.is_in_group("player"):
+			print("player")
+			b.get_hit(get_global_pos(), 15)
+		else:
+			print(typeof(b))

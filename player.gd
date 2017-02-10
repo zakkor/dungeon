@@ -6,13 +6,17 @@ extends KinematicBody2D
 onready var sprite = get_node("AnimatedSprite")
 onready var hit_timer = get_node("hit_timer")
 onready var area = get_node("Area2D")
+onready var healthbar = get_node("HUD/HealthBar")
+onready var blood = get_node("Particles2D")
 
+var health = 100
 var moving = false
 
 const SPEED = 70
 
 func _ready():
 	set_fixed_process(true)
+	set_process(true)
 	set_process_input(true)
 	pass
 	
@@ -29,7 +33,18 @@ func _input(event):
 		
 		# start hit timer
 		hit_timer.start()
-	
+
+func _process(delta):
+	healthbar.set_value(health)
+
+func get_hit(location, damage):
+	var angle = Vector2(4, 4) * (get_global_pos() - location)
+	var rad = atan2(angle.y, angle.x)
+	var deg = rad * 180 / 3.14159 + 90
+	health -= damage;
+	blood.set_param(blood.PARAM_DIRECTION, deg)
+	blood.set_emitting(true)
+
 func _fixed_process(delta):
 	var mv = Vector2(0, 0)
 	if (Input.is_action_pressed("move_up")):
@@ -70,7 +85,6 @@ func _on_idle_timer_timeout():
 
 
 func _on_hit_timer_timeout():
-	hit_timer.stop()
 	var bodies = area.get_overlapping_bodies()
 	for b in bodies:
 		if b.is_in_group("enemy"):
