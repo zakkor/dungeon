@@ -3,6 +3,7 @@ extends Node2D
 onready var player = get_node("walls/player")
 onready var torches = get_tree().get_nodes_in_group("torch")
 onready var interactLabel = get_node("HUD/interact")
+onready var debugvis = get_node("DebugVis")
 onready var enemies = get_tree().get_nodes_in_group("enemy")
 
 func can_use_item(char, item):
@@ -17,13 +18,19 @@ func _ready():
 	set_fixed_process(true)
 
 func _fixed_process(delta):
-	
+	var exclude = enemies
+	exclude.push_back(get_node("walls"))
+	exclude.push_back(player)
 		
 	for e in enemies:
 		var space_state = get_world_2d().get_direct_space_state()
-		var result = space_state.intersect_ray(e.get_global_pos(), player.get_global_pos(), [e])
+		var result = space_state.intersect_ray(e.get_global_pos(), player.get_global_pos() + Vector2(0, 22), exclude)
 		if (not result.empty()):
-			#print("Hit at point: ", result.position)
+			#print(result.position)
+			var col = Color(255, 0, 0, 1)
+			debugvis.lines.push_back(player.get_global_pos() + Vector2(0, 22))
+			debugvis.lines.push_back(result.position)
+			debugvis.update()
 			#enemy.set_fixed_process(false)
 			pass
 		else:

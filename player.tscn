@@ -12,26 +12,26 @@
 [ext_resource path="res://anims/warr/idle/7.png" type="Texture" id=10]
 [ext_resource path="res://anims/warr/idle/8.png" type="Texture" id=11]
 [ext_resource path="res://anims/warr/idle/9.png" type="Texture" id=12]
-[ext_resource path="res://anims/warr/walk/0.png" type="Texture" id=13]
-[ext_resource path="res://anims/warr/walk/1.png" type="Texture" id=14]
-[ext_resource path="res://anims/warr/walk/2.png" type="Texture" id=15]
-[ext_resource path="res://anims/warr/walk/3.png" type="Texture" id=16]
-[ext_resource path="res://anims/warr/walk/4.png" type="Texture" id=17]
-[ext_resource path="res://anims/warr/walk/5.png" type="Texture" id=18]
-[ext_resource path="res://anims/warr/walk/6.png" type="Texture" id=19]
-[ext_resource path="res://anims/warr/walk/7.png" type="Texture" id=20]
-[ext_resource path="res://anims/warr/walk/8.png" type="Texture" id=21]
-[ext_resource path="res://anims/warr/walk/9.png" type="Texture" id=22]
-[ext_resource path="res://anims/warr/attack/0.png" type="Texture" id=23]
-[ext_resource path="res://anims/warr/attack/1.png" type="Texture" id=24]
-[ext_resource path="res://anims/warr/attack/2.png" type="Texture" id=25]
-[ext_resource path="res://anims/warr/attack/3.png" type="Texture" id=26]
-[ext_resource path="res://anims/warr/attack/4.png" type="Texture" id=27]
-[ext_resource path="res://anims/warr/attack/5.png" type="Texture" id=28]
-[ext_resource path="res://anims/warr/attack/6.png" type="Texture" id=29]
-[ext_resource path="res://anims/warr/attack/7.png" type="Texture" id=30]
-[ext_resource path="res://anims/warr/attack/8.png" type="Texture" id=31]
-[ext_resource path="res://anims/warr/attack/9.png" type="Texture" id=32]
+[ext_resource path="res://anims/warr/attack/0.png" type="Texture" id=13]
+[ext_resource path="res://anims/warr/attack/1.png" type="Texture" id=14]
+[ext_resource path="res://anims/warr/attack/2.png" type="Texture" id=15]
+[ext_resource path="res://anims/warr/attack/3.png" type="Texture" id=16]
+[ext_resource path="res://anims/warr/attack/4.png" type="Texture" id=17]
+[ext_resource path="res://anims/warr/attack/5.png" type="Texture" id=18]
+[ext_resource path="res://anims/warr/attack/6.png" type="Texture" id=19]
+[ext_resource path="res://anims/warr/attack/7.png" type="Texture" id=20]
+[ext_resource path="res://anims/warr/attack/8.png" type="Texture" id=21]
+[ext_resource path="res://anims/warr/attack/9.png" type="Texture" id=22]
+[ext_resource path="res://anims/warr/walk/0.png" type="Texture" id=23]
+[ext_resource path="res://anims/warr/walk/1.png" type="Texture" id=24]
+[ext_resource path="res://anims/warr/walk/2.png" type="Texture" id=25]
+[ext_resource path="res://anims/warr/walk/3.png" type="Texture" id=26]
+[ext_resource path="res://anims/warr/walk/4.png" type="Texture" id=27]
+[ext_resource path="res://anims/warr/walk/5.png" type="Texture" id=28]
+[ext_resource path="res://anims/warr/walk/6.png" type="Texture" id=29]
+[ext_resource path="res://anims/warr/walk/7.png" type="Texture" id=30]
+[ext_resource path="res://anims/warr/walk/8.png" type="Texture" id=31]
+[ext_resource path="res://anims/warr/walk/9.png" type="Texture" id=32]
 [ext_resource path="res://spot.png" type="Texture" id=33]
 [ext_resource path="res://bloodbar/bar_under_low_res.png" type="Texture" id=34]
 [ext_resource path="res://bloodbar/progress_low_res.png" type="Texture" id=35]
@@ -48,7 +48,7 @@ points = Vector2Array( 8.67797, -6.4, 8.67797, 19.2, -8.67797, 19.2, -8.67797, -
 
 [sub_resource type="SpriteFrames" id=3]
 
-animations = [ { "frames":[ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ], "loop":false, "name":"idle", "speed":5.0 }, { "frames":[ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ], "loop":true, "name":"walk", "speed":15.0 }, { "frames":[ ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ) ], "loop":false, "name":"attack", "speed":20.0 } ]
+animations = [ { "frames":[ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ], "loop":false, "name":"idle", "speed":5.0 }, { "frames":[ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ], "loop":false, "name":"attack", "speed":20.0 }, { "frames":[ ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ) ], "loop":true, "name":"walk", "speed":15.0 } ]
 
 [node name="player" type="KinematicBody2D" groups=[ "player" ]]
 
@@ -64,13 +64,13 @@ script/script = ExtResource( 1 )
 
 [node name="Particles2D" type="Particles2D" parent="."]
 
-config/amount = 30
-config/lifetime = 0.5
+config/amount = 60
+config/lifetime = 1.0
 config/emit_timeout = 0.2
 config/emitting = false
 config/texture = ExtResource( 2 )
 params/direction = 110.0
-params/spread = 20.0
+params/spread = 40.0
 params/linear_velocity = 80.0
 params/spin_velocity = 0.0
 params/orbit_velocity = 0.0

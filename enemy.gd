@@ -62,6 +62,8 @@ func _process(delta):
 	#die 
 	healthbar.set_value(health)
 	if health <= 0:
+		if atk_timer.get_time_left() > 0:
+			atk_timer.stop()
 		set_layer_mask(2) 
 		set_collision_mask(2) # not interactable
 		sprite.play("die")
