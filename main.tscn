@@ -1,14 +1,15 @@
-[gd_scene load_steps=12 format=1]
+[gd_scene load_steps=13 format=1]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://tilesets/tileset_floors.tres" type="TileSet" id=2]
 [ext_resource path="res://tilesets/tileset_walls.tres" type="TileSet" id=3]
 [ext_resource path="res://player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://torch.tscn" type="PackedScene" id=5]
-[ext_resource path="res://rat.tscn" type="PackedScene" id=6]
-[ext_resource path="res://tilesets/tileset_ceilings.tres" type="TileSet" id=7]
-[ext_resource path="res://hudfont.fnt" type="BitmapFont" id=8]
-[ext_resource path="res://debugvis.gd" type="Script" id=9]
+[ext_resource path="res://minotaur.tscn" type="PackedScene" id=6]
+[ext_resource path="res://rat.tscn" type="PackedScene" id=7]
+[ext_resource path="res://tilesets/tileset_ceilings.tres" type="TileSet" id=8]
+[ext_resource path="res://hudfont.fnt" type="BitmapFont" id=9]
+[ext_resource path="res://debugvis.gd" type="Script" id=10]
 
 [sub_resource type="GDScript" id=1]
 
@@ -75,20 +76,28 @@ transform/pos = Vector2( 215.88, -6.4427 )
 
 transform/pos = Vector2( 55.0712, 117.925 )
 
-[node name="rat" parent="walls" instance=ExtResource( 6 )]
+[node name="minotaur" parent="walls" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 210.148, 26.8483 )
+transform/pos = Vector2( 319.234, 58.5373 )
 
-[node name="rat1" parent="walls" instance=ExtResource( 6 )]
+[node name="rat" parent="walls" instance=ExtResource( 7 )]
 
-transform/pos = Vector2( 202.62, 111.451 )
+transform/pos = Vector2( 226.504, 28.3203 )
+
+[node name="rat 2" parent="walls" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 320.427, 105.395 )
+
+[node name="rat 3" parent="walls" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 220.768, 92.4894 )
 
 [node name="ceil" type="TileMap" parent="."]
 
 visibility/light_mask = 0
 transform/pos = Vector2( 16, 16 )
 mode = 0
-tile_set = ExtResource( 7 )
+tile_set = ExtResource( 8 )
 cell/size = Vector2( 16, 16 )
 cell/quadrant_size = 16
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -134,7 +143,7 @@ margin/left = 128.0
 margin/top = 129.0
 margin/right = 264.0
 margin/bottom = 144.0
-custom_fonts/font = ExtResource( 8 )
+custom_fonts/font = ExtResource( 9 )
 text = "Press E to interact."
 percent_visible = 1.0
 lines_skipped = 0
@@ -142,7 +151,7 @@ max_lines_visible = -1
 
 [node name="DebugVis" type="Node2D" parent="."]
 
-script/script = ExtResource( 9 )
+script/script = ExtResource( 10 )
 
 [node name="LockClickArea" type="Area2D" parent="."]
 

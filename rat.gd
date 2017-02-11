@@ -42,8 +42,6 @@ func _input(event):
 		
 		if !lock.is_visible():
 			lock.show()
-		#else:
-		#	lock.hide()
 
 func _ready():
 	set_process(true)
