@@ -52,7 +52,6 @@ animations = [ { "frames":[ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 )
 
 [node name="player" type="KinematicBody2D" groups=[ "player" ]]
 
-transform/pos = Vector2( 0, 8 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 8 )

@@ -1,14 +1,16 @@
-[gd_scene load_steps=11 format=1]
+[gd_scene load_steps=13 format=1]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://tilesets/tileset_floors.tres" type="TileSet" id=2]
 [ext_resource path="res://tilesets/tileset_walls.tres" type="TileSet" id=3]
-[ext_resource path="res://player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://torch.tscn" type="PackedScene" id=5]
-[ext_resource path="res://rat.tscn" type="PackedScene" id=6]
-[ext_resource path="res://minotaur.tscn" type="PackedScene" id=7]
-[ext_resource path="res://tilesets/tileset_ceilings.tres" type="TileSet" id=8]
-[ext_resource path="res://debugvis.gd" type="Script" id=9]
+[ext_resource path="res://walls.gd" type="Script" id=4]
+[ext_resource path="res://player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://torch.tscn" type="PackedScene" id=6]
+[ext_resource path="res://rat.tscn" type="PackedScene" id=7]
+[ext_resource path="res://minotaur.tscn" type="PackedScene" id=8]
+[ext_resource path="res://door.tscn" type="PackedScene" id=9]
+[ext_resource path="res://tilesets/tileset_ceilings.tres" type="TileSet" id=10]
+[ext_resource path="res://debugvis.gd" type="Script" id=11]
 
 [sub_resource type="GDScript" id=1]
 
@@ -56,34 +58,39 @@ collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 3
 tile_data = IntArray( -65535, 0, -65534, 1, -65533, 4, -65532, 2, -65531, 3, -65530, 5, -65525, 0, -65524, 3, -65523, 4, -65522, 3, -65521, 2, -65520, 1, -65519, 3, -65518, 1, -65517, 3, -65516, 2, -65515, 4, -65514, 1, -65513, 4, -65512, 5, 131074, 6, 196613, 0, 196614, 1, 196615, 4, 196616, 4, 196617, 2, 196618, 4, 458754, 0, 458755, 1, 458756, 5, 458758, 0 )
+script/script = ExtResource( 4 )
 __meta__ = { "_edit_lock_":true }
 
-[node name="player" parent="walls" instance=ExtResource( 4 )]
+[node name="player" parent="walls" instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 88.6738, 86.7112 )
+transform/pos = Vector2( 48, 148 )
 
-[node name="torch2" parent="walls" instance=ExtResource( 5 )]
+[node name="torch2" parent="walls" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 215.88, -6.4427 )
 
-[node name="torch" parent="walls" instance=ExtResource( 5 )]
+[node name="torch" parent="walls" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 55.0712, 117.925 )
 
-[node name="rat" parent="walls" instance=ExtResource( 6 )]
+[node name="rat" parent="walls" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 220, 68 )
 
-[node name="minotaur" parent="walls" instance=ExtResource( 7 )]
+[node name="minotaur" parent="walls" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 320.628, 57.5236 )
+
+[node name="door" parent="walls" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 88, 112 )
 
 [node name="ceil" type="TileMap" parent="."]
 
 visibility/light_mask = 0
 transform/pos = Vector2( 16, 16 )
 mode = 0
-tile_set = ExtResource( 8 )
+tile_set = ExtResource( 10 )
 cell/size = Vector2( 16, 16 )
 cell/quadrant_size = 16
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -112,6 +119,7 @@ __meta__ = { "_edit_lock_":true }
 
 [node name="DebugVis" type="Node2D" parent="."]
 
-script/script = ExtResource( 9 )
+script/script = ExtResource( 11 )
+__meta__ = { "_edit_lock_":true }
 
 

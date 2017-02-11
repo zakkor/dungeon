@@ -198,6 +198,7 @@ light_mask = 1
 
 [node name="Ceiling3" type="Sprite" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 40, 8 )
 texture = ExtResource( 1 )
 region = true

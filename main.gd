@@ -2,6 +2,7 @@ extends Node2D
 
 onready var player = get_node("walls/player")
 onready var torches = get_tree().get_nodes_in_group("torch")
+onready var doors = get_tree().get_nodes_in_group("door")
 onready var debugvis = get_node("DebugVis")
 onready var enemies = get_tree().get_nodes_in_group("enemy")
 
@@ -40,6 +41,8 @@ func _input(event):
 	if event.is_action_pressed("interact"):
 		for torch in torches:	
 			torch.try_interaction()
+		for door in doors:
+			door.try_interaction()
 
 func _process(delta):
 	update()
