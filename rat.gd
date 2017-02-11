@@ -6,10 +6,13 @@ onready var blood = get_node("BloodPart")
 onready var retaliate_timer = get_node("RetaliateTimer")
 onready var atk_timer = get_node("AttackTimer")
 onready var cd_timer = get_node("CdTimer")
-onready var hurtbox = get_node("Area2D")
+onready var hurtarea = get_node("HurtArea")
+onready var lock = get_node("Lock")
+onready var player = get_parent().get_tree().get_nodes_in_group("player")[0]
 
 const DAMAGE = 50
 var health = 100
+var mouse_inside = false
 
 func get_hit(location):
 	apply_impulse(Vector2(0, 0), Vector2(4, 4) * (get_global_pos() - location))
@@ -25,9 +28,27 @@ func get_hit(location):
 		retaliate_timer.start()
 	pass
 
+func _input(event):
+	if mouse_inside and event.is_action_pressed("lock"):
+		if lock.is_visible():
+			lock.hide()
+			player.lock_tracking = Vector2(-1, -1)
+			return
+		
+		# hide the all of them
+		for e in get_parent().get_tree().get_nodes_in_group("enemy"):
+			e.get_node("Lock").hide()
+			player.lock_tracking = Vector2(-1, -1)
+		
+		if !lock.is_visible():
+			lock.show()
+		#else:
+		#	lock.hide()
+
 func _ready():
 	set_process(true)
 	set_gravity_scale(0)
+	set_process_input(true)
 
 	sprite.play("idle")
 	pass
@@ -39,10 +60,10 @@ func move_towards(location):
 		apply_impulse(Vector2(0, 0), Vector2(0.1, 0.1) * (location - get_global_pos()))
 		if (location - get_global_pos()).x > 0:
 			sprite.set_flip_h(true)
-			hurtbox.get_node("Hurtbox").set_pos(Vector2(20, 0))
+			hurtarea.get_node("CollisionPolygon2D").set_pos(Vector2(20, 0))
 		else:
 			sprite.set_flip_h(false)
-			hurtbox.get_node("Hurtbox").set_pos(Vector2(-20, 0))
+			hurtarea.get_node("CollisionPolygon2D").set_pos(Vector2(-20, 0))
 	
 
 func attack():
@@ -58,6 +79,10 @@ func _process(delta):
 		healthbar.hide()
 	else:
 		healthbar.show()
+	
+	if lock.is_visible():
+		player.lock_tracking = get_global_pos()
+	
 	#die 
 	healthbar.set_value(health)
 	if health <= 0:
@@ -68,6 +93,8 @@ func _process(delta):
 		sprite.play("die")
 		set_process(false)
 		healthbar.hide()
+		lock.hide()
+		player.lock_tracking = Vector2(-1, -1)
 
 
 func _on_AnimatedSprite_finished():
@@ -84,7 +111,7 @@ func _on_RetaliateTimer_timeout():
 
 
 func _on_AttackTimer_timeout():
-	var bodies = hurtbox.get_overlapping_bodies()
+	var bodies = hurtarea.get_overlapping_bodies()
 	for b in bodies:
 		
 		if b.is_in_group("player"):
@@ -92,3 +119,11 @@ func _on_AttackTimer_timeout():
 			b.get_hit(get_global_pos(), 8)
 		else:
 			print(typeof(b))
+
+
+func _on_ClickDetect_mouse_enter():
+	mouse_inside = true
+
+
+func _on_ClickDetect_mouse_exit():
+	mouse_inside = false

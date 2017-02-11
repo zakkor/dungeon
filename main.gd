@@ -4,6 +4,7 @@ onready var player = get_node("walls/player")
 onready var torches = get_tree().get_nodes_in_group("torch")
 onready var interactLabel = get_node("HUD/interact")
 onready var debugvis = get_node("DebugVis")
+onready var lockclick = get_node("LockClickArea")
 onready var enemies = get_tree().get_nodes_in_group("enemy")
 
 func can_use_item(char, item):
@@ -44,11 +45,15 @@ func _fixed_process(delta):
 
 
 func _input(event):
-	if event.is_action_released("interact"):
+	if event.is_action_pressed("interact"):
 		for torch in torches:	
 			if can_use_item(player, torch):
 				torch.toggle()
 				break
+	if event.is_action_pressed("lock"):
+		pass
+		#for e in enemies:
+		#	e.get_node("Lock").hide()
 
 func _process(delta):
 	var torch_contact = false

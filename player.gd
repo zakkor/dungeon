@@ -11,6 +11,8 @@ onready var blood = get_node("Particles2D")
 
 var health = 100
 var moving = false
+var locked = false
+var lock_tracking = Vector2(-1, -1)
 
 const SPEED = 70
 
@@ -26,6 +28,9 @@ func _input(event):
 		var is_enabled = light.is_enabled()
 		light.set_enabled(!is_enabled)
 		
+	if event.is_action_pressed("lock"):	
+		locked = !locked
+	
 	if event.is_action_pressed("attack"):
 		# stop anything that might be playing
 		sprite.stop()
@@ -36,6 +41,16 @@ func _input(event):
 
 func _process(delta):
 	healthbar.set_value(health)
+	
+	if lock_tracking != Vector2(-1, -1):
+		# flip h depending on xpos
+		if lock_tracking.x > get_global_pos().x and sprite.is_flipped_h():
+			sprite.set_flip_h(false)
+			area.get_node("CollisionPolygon2D").set_pos(Vector2(18, 0))
+		else:
+			if lock_tracking.x < get_global_pos().x and !sprite.is_flipped_h():
+				sprite.set_flip_h(true)
+				area.get_node("CollisionPolygon2D").set_pos(Vector2(-18, 0))
 
 func get_hit(location, damage):
 	var angle = Vector2(4, 4) * (get_global_pos() - location)
@@ -52,13 +67,17 @@ func _fixed_process(delta):
 	if (Input.is_action_pressed("move_down")):
 		mv += Vector2(0, 1)
 	if (Input.is_action_pressed("move_left")):
-		sprite.set_flip_h(true)
-		area.get_node("CollisionPolygon2D").set_pos(Vector2(-18, 0))
 		mv += Vector2(-1, 0)
+		
+		if lock_tracking == Vector2(-1, -1):
+			sprite.set_flip_h(true)
+			area.get_node("CollisionPolygon2D").set_pos(Vector2(-18, 0))
 	if (Input.is_action_pressed("move_right")):
 		mv += Vector2(1, 0)
-		sprite.set_flip_h(false)
-		area.get_node("CollisionPolygon2D").set_pos(Vector2(18, 0))
+		
+		if lock_tracking == Vector2(-1, -1):
+			sprite.set_flip_h(false)
+			area.get_node("CollisionPolygon2D").set_pos(Vector2(18, 0))
 		
 	move(mv * Vector2(0.9, 0.9))
 	
