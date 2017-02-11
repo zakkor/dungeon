@@ -128,7 +128,7 @@ params/anim_initial_pos = 0.0
 
 frames = SubResource( 2 )
 animation = "idle"
-frame = 7
+frame = 5
 playing = true
 offset = Vector2( 0, -8 )
 
