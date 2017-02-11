@@ -88,7 +88,7 @@ func _on_hit_timer_timeout():
 	var bodies = area.get_overlapping_bodies()
 	for b in bodies:
 		if b.is_in_group("enemy"):
-			b.get_hit(get_global_pos(), 30)
+			b.get_hit(get_global_pos())
 		else:
 			print(typeof(b))
 		pass

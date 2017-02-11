@@ -23,6 +23,9 @@ func _fixed_process(delta):
 	exclude.push_back(player)
 		
 	for e in enemies:
+		if e.health <=0:
+			continue
+		
 		var space_state = get_world_2d().get_direct_space_state()
 		var result = space_state.intersect_ray(e.get_global_pos(), player.get_global_pos() + Vector2(0, 22), exclude)
 		if (not result.empty()):

@@ -2,21 +2,21 @@ extends RigidBody2D
 
 onready var sprite = get_node("AnimatedSprite")
 onready var healthbar = get_node("TextureProgress")
-onready var blood = get_node("Particles2D")
+onready var blood = get_node("BloodPart")
 onready var retaliate_timer = get_node("RetaliateTimer")
 onready var atk_timer = get_node("AttackTimer")
 onready var cd_timer = get_node("CdTimer")
 onready var hurtbox = get_node("Area2D")
 
-const SPEED = 30
+const DAMAGE = 15
 var health = 100
 
-func get_hit(location, damage):
+func get_hit(location):
 	apply_impulse(Vector2(0, 0), Vector2(4, 4) * (get_global_pos() - location))
 	var angle = Vector2(4, 4) * (get_global_pos() - location)
 	var rad = atan2(angle.y, angle.x)
 	var deg = rad * 180 / 3.14159 + 90
-	health -= 30;
+	health -= DAMAGE;
 	if sprite.get_animation() != "atk":
 		sprite.play("grunt")
 	blood.set_param(blood.PARAM_DIRECTION, deg)
@@ -40,7 +40,6 @@ func move_towards(location):
 		if (location - get_global_pos()).x > 0:
 			sprite.set_flip_h(true)
 			hurtbox.get_node("Hurtbox").set_pos(Vector2(20, 0))
-			
 		else:
 			sprite.set_flip_h(false)
 			hurtbox.get_node("Hurtbox").set_pos(Vector2(-20, 0))
@@ -85,7 +84,6 @@ func _on_RetaliateTimer_timeout():
 
 
 func _on_AttackTimer_timeout():
-	print("enemy hit!")
 	var bodies = hurtbox.get_overlapping_bodies()
 	for b in bodies:
 		
