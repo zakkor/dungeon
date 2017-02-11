@@ -5,8 +5,8 @@
 [ext_resource path="res://tilesets/tileset_walls.tres" type="TileSet" id=3]
 [ext_resource path="res://player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://torch.tscn" type="PackedScene" id=5]
-[ext_resource path="res://minotaur.tscn" type="PackedScene" id=6]
-[ext_resource path="res://rat.tscn" type="PackedScene" id=7]
+[ext_resource path="res://rat.tscn" type="PackedScene" id=6]
+[ext_resource path="res://minotaur.tscn" type="PackedScene" id=7]
 [ext_resource path="res://tilesets/tileset_ceilings.tres" type="TileSet" id=8]
 [ext_resource path="res://debugvis.gd" type="Script" id=9]
 
@@ -70,21 +70,13 @@ transform/pos = Vector2( 215.88, -6.4427 )
 
 transform/pos = Vector2( 55.0712, 117.925 )
 
-[node name="minotaur" parent="walls" instance=ExtResource( 6 )]
+[node name="rat" parent="walls" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 319.234, 58.5373 )
+transform/pos = Vector2( 220, 68 )
 
-[node name="rat" parent="walls" instance=ExtResource( 7 )]
+[node name="minotaur" parent="walls" instance=ExtResource( 7 )]
 
-transform/pos = Vector2( 226.504, 28.3203 )
-
-[node name="rat 2" parent="walls" instance=ExtResource( 7 )]
-
-transform/pos = Vector2( 320.427, 105.395 )
-
-[node name="rat 3" parent="walls" instance=ExtResource( 7 )]
-
-transform/pos = Vector2( 220.768, 92.4894 )
+transform/pos = Vector2( 320.628, 57.5236 )
 
 [node name="ceil" type="TileMap" parent="."]
 

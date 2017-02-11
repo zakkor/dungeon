@@ -13,6 +13,24 @@ closed = true
 cull_mode = 0
 polygon = Vector2Array( -8, 8, 8, 8 )
 
+[sub_resource type="OccluderPolygon2D" id=3]
+
+closed = true
+cull_mode = 0
+polygon = Vector2Array( -8, 8, 8, 8 )
+
+[sub_resource type="OccluderPolygon2D" id=4]
+
+closed = true
+cull_mode = 0
+polygon = Vector2Array( -8, 8, 8, 8 )
+
+[sub_resource type="OccluderPolygon2D" id=5]
+
+closed = true
+cull_mode = 0
+polygon = Vector2Array( 8, -8, 8, 8, -8, 8, -8, -8 )
+
 [sub_resource type="OccluderPolygon2D" id=6]
 
 closed = true
@@ -20,36 +38,6 @@ cull_mode = 0
 polygon = Vector2Array( -8, 8, 8, 8 )
 
 [sub_resource type="OccluderPolygon2D" id=7]
-
-closed = true
-cull_mode = 0
-polygon = Vector2Array( -8, 8, 8, 8 )
-
-[sub_resource type="OccluderPolygon2D" id=3]
-
-closed = true
-cull_mode = 0
-polygon = Vector2Array( 8, -8, 8, 8, -8, 8, -8, -8 )
-
-[sub_resource type="OccluderPolygon2D" id=15]
-
-closed = true
-cull_mode = 0
-polygon = Vector2Array( -8, 8, 8, 8 )
-
-[sub_resource type="OccluderPolygon2D" id=14]
-
-closed = true
-cull_mode = 0
-polygon = Vector2Array( -8, 8, 8, 8 )
-
-[sub_resource type="OccluderPolygon2D" id=13]
-
-closed = true
-cull_mode = 0
-polygon = Vector2Array( -8, 8, 8, 8 )
-
-[sub_resource type="OccluderPolygon2D" id=5]
 
 closed = true
 cull_mode = 0
@@ -73,12 +61,6 @@ closed = true
 cull_mode = 0
 polygon = Vector2Array( -8, 8, 8, 8 )
 
-[sub_resource type="OccluderPolygon2D" id=4]
-
-closed = true
-cull_mode = 0
-polygon = Vector2Array( -8, 8, 8, 8 )
-
 [sub_resource type="OccluderPolygon2D" id=11]
 
 closed = true
@@ -86,6 +68,24 @@ cull_mode = 0
 polygon = Vector2Array( -8, 8, 8, 8 )
 
 [sub_resource type="OccluderPolygon2D" id=12]
+
+closed = true
+cull_mode = 0
+polygon = Vector2Array( -8, 8, 8, 8 )
+
+[sub_resource type="OccluderPolygon2D" id=13]
+
+closed = true
+cull_mode = 0
+polygon = Vector2Array( -8, 8, 8, 8 )
+
+[sub_resource type="OccluderPolygon2D" id=14]
+
+closed = true
+cull_mode = 0
+polygon = Vector2Array( -8, 8, 8, 8 )
+
+[sub_resource type="OccluderPolygon2D" id=15]
 
 closed = true
 cull_mode = 0
@@ -193,7 +193,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling2"]
 
-occluder = SubResource( 6 )
+occluder = SubResource( 3 )
 light_mask = 1
 
 [node name="Ceiling3" type="Sprite" parent="."]
@@ -226,7 +226,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling3"]
 
-occluder = SubResource( 7 )
+occluder = SubResource( 4 )
 light_mask = 1
 
 [node name="Ceiling4" type="Sprite" parent="."]
@@ -260,7 +260,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling4"]
 
-occluder = SubResource( 3 )
+occluder = SubResource( 5 )
 light_mask = 1
 
 [node name="Ceiling5" type="Sprite" parent="."]
@@ -294,7 +294,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling5"]
 
-occluder = SubResource( 3 )
+occluder = SubResource( 5 )
 light_mask = 1
 
 [node name="Ceiling6" type="Sprite" parent="."]
@@ -328,7 +328,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling6"]
 
-occluder = SubResource( 3 )
+occluder = SubResource( 5 )
 light_mask = 1
 
 [node name="Ceiling7" type="Sprite" parent="."]
@@ -362,7 +362,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling7"]
 
-occluder = SubResource( 3 )
+occluder = SubResource( 5 )
 light_mask = 1
 
 [node name="Ceiling8" type="Sprite" parent="."]
@@ -396,7 +396,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling8"]
 
-occluder = SubResource( 3 )
+occluder = SubResource( 5 )
 light_mask = 1
 
 [node name="Ceiling9" type="Sprite" parent="."]
@@ -429,7 +429,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling9"]
 
-occluder = SubResource( 15 )
+occluder = SubResource( 6 )
 light_mask = 1
 
 [node name="Ceiling10" type="Sprite" parent="."]
@@ -463,7 +463,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling10"]
 
-occluder = SubResource( 14 )
+occluder = SubResource( 7 )
 light_mask = 1
 
 [node name="Ceiling11" type="Sprite" parent="."]
@@ -497,7 +497,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling11"]
 
-occluder = SubResource( 13 )
+occluder = SubResource( 8 )
 light_mask = 1
 
 [node name="Ceiling12" type="Sprite" parent="."]
@@ -531,7 +531,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling12"]
 
-occluder = SubResource( 3 )
+occluder = SubResource( 5 )
 light_mask = 1
 
 [node name="Ceiling13" type="Sprite" parent="."]
@@ -565,7 +565,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling13"]
 
-occluder = SubResource( 3 )
+occluder = SubResource( 5 )
 light_mask = 1
 
 [node name="Ceiling14" type="Sprite" parent="."]
@@ -599,7 +599,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling14"]
 
-occluder = SubResource( 3 )
+occluder = SubResource( 5 )
 light_mask = 1
 
 [node name="Ceiling15" type="Sprite" parent="."]
@@ -633,7 +633,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling15"]
 
-occluder = SubResource( 3 )
+occluder = SubResource( 5 )
 light_mask = 1
 
 [node name="Ceiling16" type="Sprite" parent="."]
@@ -667,7 +667,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling16"]
 
-occluder = SubResource( 3 )
+occluder = SubResource( 5 )
 light_mask = 1
 
 [node name="Ceiling17" type="Sprite" parent="."]
@@ -701,7 +701,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling17"]
 
-occluder = SubResource( 3 )
+occluder = SubResource( 5 )
 light_mask = 1
 
 [node name="Ceiling18" type="Sprite" parent="."]
@@ -735,7 +735,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling18"]
 
-occluder = SubResource( 5 )
+occluder = SubResource( 9 )
 light_mask = 1
 
 [node name="Ceiling19" type="Sprite" parent="."]
@@ -769,7 +769,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling19"]
 
-occluder = SubResource( 3 )
+occluder = SubResource( 5 )
 light_mask = 1
 
 [node name="Ceiling20" type="Sprite" parent="."]
@@ -803,7 +803,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling20"]
 
-occluder = SubResource( 8 )
+occluder = SubResource( 10 )
 light_mask = 1
 
 [node name="Ceiling21" type="Sprite" parent="."]
@@ -837,7 +837,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling21"]
 
-occluder = SubResource( 3 )
+occluder = SubResource( 5 )
 light_mask = 1
 
 [node name="Ceiling22" type="Sprite" parent="."]
@@ -871,7 +871,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling22"]
 
-occluder = SubResource( 9 )
+occluder = SubResource( 11 )
 light_mask = 1
 
 [node name="Ceiling23" type="Sprite" parent="."]
@@ -905,7 +905,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling23"]
 
-occluder = SubResource( 10 )
+occluder = SubResource( 12 )
 light_mask = 1
 
 [node name="Ceiling24" type="Sprite" parent="."]
@@ -939,7 +939,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling24"]
 
-occluder = SubResource( 3 )
+occluder = SubResource( 5 )
 light_mask = 1
 
 [node name="Ceiling25" type="Sprite" parent="."]
@@ -973,7 +973,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling25"]
 
-occluder = SubResource( 3 )
+occluder = SubResource( 5 )
 light_mask = 1
 
 [node name="Ceiling26" type="Sprite" parent="."]
@@ -1008,7 +1008,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling26"]
 
-occluder = SubResource( 4 )
+occluder = SubResource( 13 )
 light_mask = 1
 
 [node name="Ceiling27" type="Sprite" parent="."]
@@ -1042,7 +1042,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling27"]
 
-occluder = SubResource( 11 )
+occluder = SubResource( 14 )
 light_mask = 1
 
 [node name="Ceiling28" type="Sprite" parent="."]
@@ -1076,7 +1076,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling28"]
 
-occluder = SubResource( 12 )
+occluder = SubResource( 15 )
 light_mask = 1
 
 [node name="Ceiling29" type="Sprite" parent="."]
@@ -1110,7 +1110,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling29"]
 
-occluder = SubResource( 3 )
+occluder = SubResource( 5 )
 light_mask = 1
 
 [node name="Ceiling30" type="Sprite" parent="."]
@@ -1144,7 +1144,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling30"]
 
-occluder = SubResource( 3 )
+occluder = SubResource( 5 )
 light_mask = 1
 
 [node name="Ceiling31" type="Sprite" parent="."]
@@ -1178,7 +1178,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling31"]
 
-occluder = SubResource( 3 )
+occluder = SubResource( 5 )
 light_mask = 1
 
 [node name="Ceiling32" type="Sprite" parent="."]
@@ -1212,7 +1212,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling32"]
 
-occluder = SubResource( 3 )
+occluder = SubResource( 5 )
 light_mask = 1
 
 [node name="Ceiling33" type="Sprite" parent="."]
@@ -1246,7 +1246,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling33"]
 
-occluder = SubResource( 3 )
+occluder = SubResource( 5 )
 light_mask = 1
 
 [node name="Ceiling34" type="Sprite" parent="."]
@@ -1280,7 +1280,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling34"]
 
-occluder = SubResource( 3 )
+occluder = SubResource( 5 )
 light_mask = 1
 
 [node name="Ceiling35" type="Sprite" parent="."]
@@ -1484,7 +1484,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling40"]
 
-occluder = SubResource( 3 )
+occluder = SubResource( 5 )
 light_mask = 1
 
 [node name="Ceiling41" type="Sprite" parent="."]
@@ -1518,7 +1518,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling41"]
 
-occluder = SubResource( 3 )
+occluder = SubResource( 5 )
 light_mask = 1
 
 [node name="Ceiling42" type="Sprite" parent="."]
@@ -1585,7 +1585,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling43"]
 
-occluder = SubResource( 3 )
+occluder = SubResource( 5 )
 light_mask = 1
 
 [node name="Ceiling44" type="Sprite" parent="."]
@@ -1619,7 +1619,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling44"]
 
-occluder = SubResource( 3 )
+occluder = SubResource( 5 )
 light_mask = 1
 
 [node name="Ceiling45" type="Sprite" parent="."]
@@ -1653,7 +1653,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling45"]
 
-occluder = SubResource( 3 )
+occluder = SubResource( 5 )
 light_mask = 1
 
 [node name="Ceiling46" type="Sprite" parent="."]
@@ -1687,7 +1687,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling46"]
 
-occluder = SubResource( 3 )
+occluder = SubResource( 5 )
 light_mask = 1
 
 [node name="Ceiling47" type="Sprite" parent="."]
@@ -1721,7 +1721,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling47"]
 
-occluder = SubResource( 3 )
+occluder = SubResource( 5 )
 light_mask = 1
 
 [node name="Ceiling48" type="Sprite" parent="."]
@@ -1755,7 +1755,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling48"]
 
-occluder = SubResource( 3 )
+occluder = SubResource( 5 )
 light_mask = 1
 
 [node name="Ceiling49" type="Sprite" parent="."]
@@ -1789,7 +1789,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling49"]
 
-occluder = SubResource( 3 )
+occluder = SubResource( 5 )
 light_mask = 1
 
 [node name="Ceiling50" type="Sprite" parent="."]
@@ -1823,7 +1823,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling50"]
 
-occluder = SubResource( 3 )
+occluder = SubResource( 5 )
 light_mask = 1
 
 [node name="Ceiling51" type="Sprite" parent="."]
@@ -1857,7 +1857,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling51"]
 
-occluder = SubResource( 3 )
+occluder = SubResource( 5 )
 light_mask = 1
 
 [node name="Ceiling52" type="Sprite" parent="."]
@@ -1891,7 +1891,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling52"]
 
-occluder = SubResource( 3 )
+occluder = SubResource( 5 )
 light_mask = 1
 
 [node name="Ceiling53" type="Sprite" parent="."]
@@ -1925,7 +1925,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling53"]
 
-occluder = SubResource( 3 )
+occluder = SubResource( 5 )
 light_mask = 1
 
 [node name="Ceiling54" type="Sprite" parent="."]
@@ -1959,7 +1959,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling54"]
 
-occluder = SubResource( 3 )
+occluder = SubResource( 5 )
 light_mask = 1
 
 [node name="Ceiling55" type="Sprite" parent="."]
@@ -1993,7 +1993,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling55"]
 
-occluder = SubResource( 3 )
+occluder = SubResource( 5 )
 light_mask = 1
 
 [node name="Ceiling56" type="Sprite" parent="."]
@@ -2027,7 +2027,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling56"]
 
-occluder = SubResource( 3 )
+occluder = SubResource( 5 )
 light_mask = 1
 
 [node name="Ceiling57" type="Sprite" parent="."]
@@ -2061,7 +2061,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling57"]
 
-occluder = SubResource( 3 )
+occluder = SubResource( 5 )
 light_mask = 1
 
 
