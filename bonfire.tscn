@@ -1,0 +1,117 @@
+[gd_scene load_steps=15 format=1]
+
+[ext_resource path="res://bonfire.gd" type="Script" id=1]
+[ext_resource path="res://anims/bonfire/0.png" type="Texture" id=2]
+[ext_resource path="res://anims/bonfire/1.png" type="Texture" id=3]
+[ext_resource path="res://anims/bonfire/2.png" type="Texture" id=4]
+[ext_resource path="res://anims/bonfire/3.png" type="Texture" id=5]
+[ext_resource path="res://anims/bonfire/4.png" type="Texture" id=6]
+[ext_resource path="res://anims/bonfire/5.png" type="Texture" id=7]
+[ext_resource path="res://anims/bonfire/6.png" type="Texture" id=8]
+[ext_resource path="res://anims/bonfire/7.png" type="Texture" id=9]
+[ext_resource path="res://anims/bonfire/8.png" type="Texture" id=10]
+[ext_resource path="res://spot.png" type="Texture" id=11]
+[ext_resource path="res://hudfont.fnt" type="BitmapFont" id=12]
+
+[sub_resource type="SpriteFrames" id=3]
+
+animations = [ { "frames":[ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ], "loop":true, "name":"burn", "speed":5.0 } ]
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -18.74, -5.16, 17.26, -5.16, 17.26, 32.84, -18.74, 32.84 )
+
+[node name="bonfire" type="Node2D" groups=[ "torch" ]]
+
+script/script = ExtResource( 1 )
+
+[node name="AnimSprite" type="AnimatedSprite" parent="."]
+
+visibility/visible = false
+frames = SubResource( 3 )
+animation = "burn"
+frame = 3
+playing = true
+
+[node name="StaticSprite" type="Sprite" parent="."]
+
+texture = ExtResource( 10 )
+
+[node name="Light2D" type="Light2D" parent="."]
+
+visibility/visible = false
+enabled = true
+editor_only = false
+texture = ExtResource( 11 )
+offset = Vector2( 0, 0 )
+scale = 2.45
+color = Color( 0.851563, 0.60915, 0.146362, 1 )
+energy = 1.0
+mode = 0
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 1
+shadow/enabled = true
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1
+
+[node name="Timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 0.1
+one_shot = false
+autostart = true
+
+[node name="InteractArea" type="Area2D" parent="."]
+
+input/pickable = true
+shapes/0/shape = SubResource( 4 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0.74, -8.84 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InteractArea"]
+
+transform/pos = Vector2( 0.74, -8.84 )
+build_mode = 0
+polygon = Vector2Array( -18.74, -5.16, 17.26, -5.16, 17.26, 32.84, -18.74, 32.84 )
+shape_range = Vector2( 0, 0 )
+trigger = false
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="InteractLabel" type="Label" parent="HUD"]
+
+visibility/visible = false
+rect/scale = Vector2( 3, 3 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 416.0
+margin/top = 564.0
+margin/right = 568.0
+margin/bottom = 579.0
+custom_fonts/font = ExtResource( 12 )
+text = "Press E to light torch"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+

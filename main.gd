@@ -21,20 +21,24 @@ func _fixed_process(delta):
 			continue
 		
 		var space_state = get_world_2d().get_direct_space_state()
-		var result = space_state.intersect_ray(e.get_global_pos(), player.get_global_pos() + Vector2(0, 22), exclude)
+		var result = space_state.intersect_ray(e.get_global_pos(), player.get_global_pos(), exclude)
 		if (not result.empty()):
 			#print(result.position)
 			var col = Color(255, 0, 0, 1)
-			debugvis.lines.push_back(player.get_global_pos() + Vector2(0, 22))
-			debugvis.lines.push_back(result.position)
-			debugvis.update()
+			#debugvis.lines.push_back(player.get_global_pos())
+			#debugvis.lines.push_back(result.position)
+			#debugvis.update()
 			#enemy.set_fixed_process(false)
 			pass
 		else:
-			if e.get_global_pos().distance_to(player.get_global_pos()) > 32:
+			var y_offset = Vector2(0, 25)
+			
+			if e.get_global_pos().distance_to(player.get_global_pos()) > 16:
 				e.move_towards(player.get_global_pos())
 			else:
 				e.attack()
+			
+			
 
 
 func _input(event):

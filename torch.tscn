@@ -25,7 +25,6 @@ script/script = ExtResource( 1 )
 
 frames = SubResource( 1 )
 animation = "burn"
-frame = 2
 playing = true
 
 [node name="StaticSprite" type="Sprite" parent="."]
@@ -58,7 +57,7 @@ shadow/item_mask = 1
 [node name="Timer" type="Timer" parent="."]
 
 process_mode = 1
-wait_time = 0.298568
+wait_time = 0.1
 one_shot = false
 autostart = true
 

@@ -55,7 +55,7 @@ func move_towards(location):
 	if health > 0:
 		if sprite.get_animation() != "atk" and sprite.get_animation() != "grunt":
 			sprite.play("walk")
-			apply_impulse(Vector2(0, 0), Vector2(0.06, 0.06) * (location - get_global_pos()))
+			apply_impulse(Vector2(0, 0), Vector2(0.07, 0.07) * (location - get_global_pos()))
 			if (location - get_global_pos()).x > 0:
 				sprite.set_flip_h(true)
 				hurtarea.get_node("CollisionPolygon2D").set_pos(Vector2(20, 0))

@@ -10,6 +10,7 @@ onready var hurtarea = get_node("HurtArea")
 onready var lock = get_node("Lock")
 onready var player = get_parent().get_tree().get_nodes_in_group("player")[0]
 
+const offset = Vector2(0, 12)
 const DAMAGE = 50
 var health = 100
 var mouse_inside = false
@@ -52,6 +53,8 @@ func _ready():
 	pass
 
 func move_towards(location):
+	location += offset
+	
 	if health > 0:
 		if sprite.get_animation() != "atk" and sprite.get_animation() != "grunt":
 			sprite.play("walk")
@@ -111,7 +114,6 @@ func _on_RetaliateTimer_timeout():
 func _on_AttackTimer_timeout():
 	var bodies = hurtarea.get_overlapping_bodies()
 	for b in bodies:
-		
 		if b.is_in_group("player"):
 			print("player")
 			b.get_hit(get_global_pos(), 8)

@@ -1,18 +1,22 @@
-[gd_scene load_steps=13 format=1]
+[gd_scene load_steps=14 format=1]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://tilesets/tileset_floors.tres" type="TileSet" id=2]
 [ext_resource path="res://tilesets/tileset_walls.tres" type="TileSet" id=3]
-[ext_resource path="res://walls.gd" type="Script" id=4]
-[ext_resource path="res://player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://torch.tscn" type="PackedScene" id=6]
-[ext_resource path="res://rat.tscn" type="PackedScene" id=7]
-[ext_resource path="res://minotaur.tscn" type="PackedScene" id=8]
-[ext_resource path="res://door.tscn" type="PackedScene" id=9]
+[ext_resource path="res://player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://torch.tscn" type="PackedScene" id=5]
+[ext_resource path="res://rat.tscn" type="PackedScene" id=6]
+[ext_resource path="res://minotaur.tscn" type="PackedScene" id=7]
+[ext_resource path="res://door.tscn" type="PackedScene" id=8]
+[ext_resource path="res://bonfire.tscn" type="PackedScene" id=9]
 [ext_resource path="res://tilesets/tileset_ceilings.tres" type="TileSet" id=10]
 [ext_resource path="res://debugvis.gd" type="Script" id=11]
 
 [sub_resource type="GDScript" id=1]
+
+script/source = "extends TileMap\n\n# class member variables go here, for example:\n# var a = 2\n# var b = \"textvar\"\n\nfunc _ready():\n\t# Called every time the node is added to the scene.\n\t# Initialization here\n\tpass\n"
+
+[sub_resource type="GDScript" id=2]
 
 script/source = "extends Node2D\n\n \nvar path = [] # path from the main script\n \nfunc _draw():\n\tvar col = Color(255,0,0,1)\n \n\t# for each path point\n\tfor i in range( path.size() ):\n\t\t#if i > 0:\n\t\tdraw_circle(path[i], 3, col)\n\t\t\t#draw_line( path[i-1], path[i], col )"
 
@@ -58,32 +62,40 @@ collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 3
 tile_data = IntArray( -65535, 0, -65534, 1, -65533, 4, -65532, 2, -65531, 3, -65530, 5, -65525, 0, -65524, 3, -65523, 4, -65522, 3, -65521, 2, -65520, 1, -65519, 3, -65518, 1, -65517, 3, -65516, 2, -65515, 4, -65514, 1, -65513, 4, -65512, 5, 131074, 6, 196613, 0, 196614, 1, 196615, 4, 196616, 4, 196617, 2, 196618, 4, 458754, 0, 458755, 1, 458756, 5, 458758, 0 )
-script/script = ExtResource( 4 )
+script/script = SubResource( 1 )
 __meta__ = { "_edit_lock_":true }
 
-[node name="player" parent="walls" instance=ExtResource( 5 )]
+[node name="player" parent="walls" instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 48, 148 )
+transform/pos = Vector2( 76, 20 )
 
-[node name="torch2" parent="walls" instance=ExtResource( 6 )]
+[node name="torch2" parent="walls" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 215.88, -6.4427 )
 
-[node name="torch" parent="walls" instance=ExtResource( 6 )]
+[node name="torch" parent="walls" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 55.0712, 117.925 )
 
-[node name="rat" parent="walls" instance=ExtResource( 7 )]
+[node name="rat" parent="walls" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 220, 68 )
+transform/pos = Vector2( 216, 96 )
 
-[node name="minotaur" parent="walls" instance=ExtResource( 8 )]
+[node name="minotaur" parent="walls" instance=ExtResource( 7 )]
 
-transform/pos = Vector2( 320.628, 57.5236 )
+transform/pos = Vector2( 372, 32 )
 
-[node name="door" parent="walls" instance=ExtResource( 9 )]
+[node name="door" parent="walls" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 88, 112 )
+
+[node name="rat 2" parent="walls" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 60, 152 )
+
+[node name="bonfire" parent="walls" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 39.9865, 77.139 )
 
 [node name="ceil" type="TileMap" parent="."]
 
@@ -108,13 +120,13 @@ __meta__ = { "_edit_lock_":true }
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 
-color = Color( 0.523438, 0.523438, 0.523438, 1 )
+color = Color( 0.476563, 0.476563, 0.476563, 1 )
 __meta__ = { "_edit_lock_":true }
 
 [node name="PathDraw" type="Node2D" parent="."]
 
 transform/pos = Vector2( 16, 16 )
-script/script = SubResource( 1 )
+script/script = SubResource( 2 )
 __meta__ = { "_edit_lock_":true }
 
 [node name="DebugVis" type="Node2D" parent="."]

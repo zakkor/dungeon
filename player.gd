@@ -25,8 +25,10 @@ func _ready():
 func _input(event):
 	if (event.is_action_released("light_toggle")):
 		var light = get_node("Light2D")
-		var is_enabled = light.is_enabled()
-		light.set_enabled(!is_enabled)
+		if light.is_visible():
+			light.hide()
+		else:
+			light.show()
 		
 	if event.is_action_pressed("lock"):	
 		locked = !locked
@@ -35,7 +37,6 @@ func _input(event):
 		# stop anything that might be playing
 		sprite.stop()
 		sprite.play("attack")
-		
 		# start hit timer
 		hit_timer.start()
 
@@ -83,6 +84,7 @@ func _fixed_process(delta):
 	
 	if mv != Vector2(0, 0) and sprite.get_animation() == "idle":
 		sprite.stop()
+		pass
 	
 	if mv != Vector2(0, 0) and !sprite.is_playing():
 		sprite.play("walk")
@@ -95,7 +97,8 @@ func _fixed_process(delta):
 		moving = false
 
 func _on_AnimatedSprite_finished():
-	sprite.stop()
+	sprite.play("idle")
+	pass
 
 
 func _on_idle_timer_timeout():
