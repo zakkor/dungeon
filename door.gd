@@ -5,16 +5,11 @@ onready var open = get_node("Open")
 onready var closed = get_node("Closed")
 onready var closed_body = get_node("ClosedBody")
 onready var open_body = get_node("OpenBody")
-onready var label = get_node("HUD/InteractLabel")
+onready var label = get_node("HUD/CenterContainer/InteractLabel")
 onready var open_occlud = get_node("OpenOcclud")
 onready var closed_occlud = get_node("ClosedOcclud")
 
-func _process(delta):
-	if open.is_visible():
-		label.set_text("Press E to close door")
-	else:
-		label.set_text("Press E to open door")
-	
+func _process(delta):	
 	if player_in_range():
 		label.show()
 	else:

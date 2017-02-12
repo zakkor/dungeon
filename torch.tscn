@@ -25,6 +25,7 @@ script/script = ExtResource( 1 )
 
 frames = SubResource( 1 )
 animation = "burn"
+frame = 1
 playing = true
 
 [node name="StaticSprite" type="Sprite" parent="."]
@@ -86,20 +87,36 @@ offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
 
-[node name="InteractLabel" type="Label" parent="HUD"]
+[node name="CenterContainer" type="CenterContainer" parent="HUD"]
+
+anchor/left = 3
+anchor/top = 1
+anchor/right = 3
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 150.0
+margin/right = 0.0
+margin/bottom = 0.0
+use_top_left = true
+
+[node name="InteractLabel" type="Label" parent="HUD/CenterContainer"]
 
 visibility/visible = false
-rect/scale = Vector2( 3, 3 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 416.0
-margin/top = 564.0
-margin/right = 568.0
-margin/bottom = 579.0
+margin/left = -152.0
+margin/top = -15.0
+margin/right = 152.0
+margin/bottom = 15.0
 custom_fonts/font = ExtResource( 7 )
 text = "Press E to light torch"
+align = 1
+valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1

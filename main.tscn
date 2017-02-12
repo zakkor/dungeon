@@ -97,6 +97,10 @@ transform/pos = Vector2( 60, 152 )
 
 transform/pos = Vector2( 39.9865, 77.139 )
 
+[node name="door 2" parent="walls" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 184, 48 )
+
 [node name="ceil" type="TileMap" parent="."]
 
 visibility/light_mask = 0

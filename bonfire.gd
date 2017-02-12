@@ -4,7 +4,7 @@ onready var light = get_node("Light2D")
 onready var anim_spr = get_node("AnimSprite")
 onready var static_spr = get_node("StaticSprite")
 onready var area = get_node("InteractArea")
-onready var label = get_node("HUD/InteractLabel")
+onready var label = get_node("HUD/CenterContainer/InteractLabel")
 
 func _process(delta):
 	if anim_spr.is_visible():

@@ -10,24 +10,24 @@
 custom_solver_bias = 0.0
 points = Vector2Array( -8.8, 2.8, 7.2, 2.8, 7.2, 18.8, -8.8, 18.8 )
 
-[sub_resource type="ConvexPolygonShape2D" id=5]
+[sub_resource type="ConvexPolygonShape2D" id=2]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -8.8, -11.2, -8.8, 34.8, -12.8, 34.8, -12.8, -11.2 )
 
-[sub_resource type="OccluderPolygon2D" id=4]
+[sub_resource type="OccluderPolygon2D" id=3]
 
 closed = true
 cull_mode = 0
 polygon = Vector2Array( -8, -16, 8, -16 )
 
-[sub_resource type="OccluderPolygon2D" id=2]
+[sub_resource type="OccluderPolygon2D" id=4]
 
 closed = true
 cull_mode = 0
 polygon = Vector2Array( -8, -16, -8, 30 )
 
-[sub_resource type="ConvexPolygonShape2D" id=3]
+[sub_resource type="ConvexPolygonShape2D" id=5]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -8, -4, 8, -4, 8, 22, -8, 22 )
@@ -75,7 +75,7 @@ trigger = false
 
 transform/pos = Vector2( 0, 16 )
 input/pickable = false
-shapes/0/shape = SubResource( 5 )
+shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0.799999, -2.8 )
 shapes/0/trigger = false
 collision/layers = 2
@@ -96,20 +96,20 @@ trigger = false
 [node name="ClosedOcclud" type="LightOccluder2D" parent="."]
 
 transform/pos = Vector2( 0, 16 )
-occluder = SubResource( 4 )
+occluder = SubResource( 3 )
 light_mask = 1
 
 [node name="OpenOcclud" type="LightOccluder2D" parent="."]
 
 transform/pos = Vector2( 0, 16 )
-occluder = SubResource( 2 )
+occluder = SubResource( 4 )
 light_mask = 2
 
 [node name="InteractArea" type="Area2D" parent="."]
 
 transform/pos = Vector2( 0, 16 )
 input/pickable = true
-shapes/0/shape = SubResource( 3 )
+shapes/0/shape = SubResource( 5 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -131,19 +131,35 @@ offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
 
-[node name="InteractLabel" type="Label" parent="HUD"]
+[node name="CenterContainer" type="CenterContainer" parent="HUD"]
 
-rect/scale = Vector2( 3, 3 )
+anchor/left = 3
+anchor/top = 1
+anchor/right = 3
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 150.0
+margin/right = 0.0
+margin/bottom = 0.0
+use_top_left = true
+
+[node name="InteractLabel" type="Label" parent="HUD/CenterContainer"]
+
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 402.0
-margin/top = 560.0
-margin/right = 551.0
-margin/bottom = 575.0
+size_flags/vertical = 2
+margin/left = -192.0
+margin/top = -15.0
+margin/right = 192.0
+margin/bottom = 15.0
 custom_fonts/font = ExtResource( 4 )
-text = "Press E to open door"
+text = "Press E to open/close door"
+align = 1
+valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1

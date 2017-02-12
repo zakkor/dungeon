@@ -15,7 +15,7 @@ var health = 100
 var mouse_inside = false
 
 func get_hit(location):
-	apply_impulse(Vector2(0, 0), Vector2(4, 4) * (get_global_pos() - location))
+	apply_impulse(Vector2(0, 0), Vector2(2, 2) * (get_global_pos() - location))
 	var angle = Vector2(4, 4) * (get_global_pos() - location)
 	var rad = atan2(angle.y, angle.x)
 	var deg = rad * 180 / 3.14159 + 90
