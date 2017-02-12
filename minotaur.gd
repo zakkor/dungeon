@@ -13,6 +13,7 @@ onready var player = get_parent().get_tree().get_nodes_in_group("player")[0]
 const DAMAGE = 15
 var health = 100
 var mouse_inside = false
+var initial_pos
 
 func get_hit(location):
 	apply_impulse(Vector2(0, 0), Vector2(2, 2) * (get_global_pos() - location))
@@ -49,7 +50,7 @@ func _ready():
 	set_process_input(true)
 
 	sprite.play("idle")
-	pass
+	initial_pos = get_global_pos()
 
 func move_towards(location):
 	if health > 0:

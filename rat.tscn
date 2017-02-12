@@ -12,16 +12,16 @@
 [ext_resource path="res://anims/enemy/rat/idle/7.png" type="Texture" id=10]
 [ext_resource path="res://anims/enemy/rat/idle/8.png" type="Texture" id=11]
 [ext_resource path="res://anims/enemy/rat/idle/9.png" type="Texture" id=12]
-[ext_resource path="res://anims/enemy/rat/walk/0.png" type="Texture" id=13]
-[ext_resource path="res://anims/enemy/rat/walk/1.png" type="Texture" id=14]
-[ext_resource path="res://anims/enemy/rat/walk/2.png" type="Texture" id=15]
-[ext_resource path="res://anims/enemy/rat/walk/3.png" type="Texture" id=16]
-[ext_resource path="res://anims/enemy/rat/walk/4.png" type="Texture" id=17]
-[ext_resource path="res://anims/enemy/rat/walk/5.png" type="Texture" id=18]
-[ext_resource path="res://anims/enemy/rat/walk/6.png" type="Texture" id=19]
-[ext_resource path="res://anims/enemy/rat/walk/7.png" type="Texture" id=20]
-[ext_resource path="res://anims/enemy/rat/walk/8.png" type="Texture" id=21]
-[ext_resource path="res://anims/enemy/rat/walk/9.png" type="Texture" id=22]
+[ext_resource path="res://anims/enemy/rat/grunt/0.png" type="Texture" id=13]
+[ext_resource path="res://anims/enemy/rat/grunt/1.png" type="Texture" id=14]
+[ext_resource path="res://anims/enemy/rat/grunt/2.png" type="Texture" id=15]
+[ext_resource path="res://anims/enemy/rat/grunt/3.png" type="Texture" id=16]
+[ext_resource path="res://anims/enemy/rat/grunt/4.png" type="Texture" id=17]
+[ext_resource path="res://anims/enemy/rat/grunt/5.png" type="Texture" id=18]
+[ext_resource path="res://anims/enemy/rat/grunt/6.png" type="Texture" id=19]
+[ext_resource path="res://anims/enemy/rat/grunt/7.png" type="Texture" id=20]
+[ext_resource path="res://anims/enemy/rat/grunt/8.png" type="Texture" id=21]
+[ext_resource path="res://anims/enemy/rat/grunt/9.png" type="Texture" id=22]
 [ext_resource path="res://anims/enemy/rat/die/0.png" type="Texture" id=23]
 [ext_resource path="res://anims/enemy/rat/die/1.png" type="Texture" id=24]
 [ext_resource path="res://anims/enemy/rat/die/2.png" type="Texture" id=25]
@@ -42,35 +42,35 @@
 [ext_resource path="res://anims/enemy/rat/atk/7.png" type="Texture" id=40]
 [ext_resource path="res://anims/enemy/rat/atk/8.png" type="Texture" id=41]
 [ext_resource path="res://anims/enemy/rat/atk/9.png" type="Texture" id=42]
-[ext_resource path="res://anims/enemy/rat/grunt/0.png" type="Texture" id=43]
-[ext_resource path="res://anims/enemy/rat/grunt/1.png" type="Texture" id=44]
-[ext_resource path="res://anims/enemy/rat/grunt/2.png" type="Texture" id=45]
-[ext_resource path="res://anims/enemy/rat/grunt/3.png" type="Texture" id=46]
-[ext_resource path="res://anims/enemy/rat/grunt/4.png" type="Texture" id=47]
-[ext_resource path="res://anims/enemy/rat/grunt/5.png" type="Texture" id=48]
-[ext_resource path="res://anims/enemy/rat/grunt/6.png" type="Texture" id=49]
-[ext_resource path="res://anims/enemy/rat/grunt/7.png" type="Texture" id=50]
-[ext_resource path="res://anims/enemy/rat/grunt/8.png" type="Texture" id=51]
-[ext_resource path="res://anims/enemy/rat/grunt/9.png" type="Texture" id=52]
+[ext_resource path="res://anims/enemy/rat/walk/0.png" type="Texture" id=43]
+[ext_resource path="res://anims/enemy/rat/walk/1.png" type="Texture" id=44]
+[ext_resource path="res://anims/enemy/rat/walk/2.png" type="Texture" id=45]
+[ext_resource path="res://anims/enemy/rat/walk/3.png" type="Texture" id=46]
+[ext_resource path="res://anims/enemy/rat/walk/4.png" type="Texture" id=47]
+[ext_resource path="res://anims/enemy/rat/walk/5.png" type="Texture" id=48]
+[ext_resource path="res://anims/enemy/rat/walk/6.png" type="Texture" id=49]
+[ext_resource path="res://anims/enemy/rat/walk/7.png" type="Texture" id=50]
+[ext_resource path="res://anims/enemy/rat/walk/8.png" type="Texture" id=51]
+[ext_resource path="res://anims/enemy/rat/walk/9.png" type="Texture" id=52]
 [ext_resource path="res://bloodbar/bar_under_low_res.png" type="Texture" id=53]
 [ext_resource path="res://bloodbar/progress_low_res.png" type="Texture" id=54]
 [ext_resource path="res://lockon.png" type="Texture" id=55]
 
-[sub_resource type="ConvexPolygonShape2D" id=6]
+[sub_resource type="ConvexPolygonShape2D" id=1]
 
 custom_solver_bias = 0.0
 points = Vector2Array( 4, 10, -8, 10, -8, 4, 4, 4 )
 
 [sub_resource type="SpriteFrames" id=2]
 
-animations = [ { "frames":[ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ], "loop":true, "name":"idle", "speed":5.0 }, { "frames":[ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ], "loop":true, "name":"walk", "speed":15.0 }, { "frames":[ ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ) ], "loop":false, "name":"die", "speed":5.0 }, { "frames":[ ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ) ], "loop":false, "name":"atk", "speed":10.0 }, { "frames":[ ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ) ], "loop":false, "name":"grunt", "speed":15.0 } ]
+animations = [ { "frames":[ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ], "loop":true, "name":"idle", "speed":5.0 }, { "frames":[ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ], "loop":false, "name":"grunt", "speed":15.0 }, { "frames":[ ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ) ], "loop":false, "name":"die", "speed":5.0 }, { "frames":[ ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ) ], "loop":false, "name":"atk", "speed":10.0 }, { "frames":[ ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ) ], "loop":true, "name":"walk", "speed":15.0 } ]
 
-[sub_resource type="ConvexPolygonShape2D" id=8]
+[sub_resource type="ConvexPolygonShape2D" id=3]
 
 custom_solver_bias = 0.0
 points = Vector2Array( 20, 16, -4, 16, -4, -10, 20, -10 )
 
-[sub_resource type="ConvexPolygonShape2D" id=7]
+[sub_resource type="ConvexPolygonShape2D" id=4]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -12, -6, 8, -6, 8, 10, -12, 10 )
@@ -79,7 +79,7 @@ points = Vector2Array( -12, -6, 8, -6, 8, 10, -12, 10 )
 
 transform/pos = Vector2( 0, -14 )
 input/pickable = false
-shapes/0/shape = SubResource( 6 )
+shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 2, 6 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -129,7 +129,6 @@ params/anim_initial_pos = 0.0
 
 frames = SubResource( 2 )
 animation = "idle"
-frame = 3
 playing = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
@@ -189,8 +188,9 @@ autostart = false
 
 [node name="HurtArea" type="Area2D" parent="."]
 
+editor/display_folded = true
 input/pickable = true
-shapes/0/shape = SubResource( 8 )
+shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, -26, 6 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -208,8 +208,9 @@ trigger = false
 
 [node name="ClickDetect" type="Area2D" parent="."]
 
+editor/display_folded = true
 input/pickable = true
-shapes/0/shape = SubResource( 7 )
+shapes/0/shape = SubResource( 4 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 2, 10 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )

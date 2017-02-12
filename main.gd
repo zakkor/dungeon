@@ -6,10 +6,15 @@ onready var doors = get_tree().get_nodes_in_group("door")
 onready var debugvis = get_node("DebugVis")
 onready var enemies = get_tree().get_nodes_in_group("enemy")
 
+var should_reset = false
+
 func _ready():
 	set_process(true)
 	set_process_input(true)
 	set_fixed_process(true)
+
+func reset_enemies():
+	should_reset = true
 
 func _fixed_process(delta):
 	var exclude = enemies
@@ -17,6 +22,14 @@ func _fixed_process(delta):
 	exclude.push_back(player)
 		
 	for e in enemies:
+		if should_reset:
+			e.health = 100
+			e.set_process(true)
+			e.set_global_pos(e.initial_pos)
+			e.get_node("AnimatedSprite").play("idle")
+			e.set_layer_mask(1) 
+			e.set_collision_mask(1) # interactable
+		
 		if e.health <=0:
 			continue
 		
@@ -38,7 +51,7 @@ func _fixed_process(delta):
 			else:
 				e.attack()
 			
-			
+	should_reset = false
 
 
 func _input(event):

@@ -10,10 +10,10 @@ onready var hurtarea = get_node("HurtArea")
 onready var lock = get_node("Lock")
 onready var player = get_parent().get_tree().get_nodes_in_group("player")[0]
 
-const offset = Vector2(0, 12)
 const DAMAGE = 50
 var health = 100
 var mouse_inside = false
+var initial_pos
 
 func get_hit(location):
 	apply_impulse(Vector2(0, 0), Vector2(4, 4) * (get_global_pos() - location))
@@ -38,7 +38,7 @@ func _input(event):
 		
 		# hide the all of them
 		for e in get_parent().get_tree().get_nodes_in_group("enemy"):
-			e.get_node("Lock").hide()
+			e.lock.hide()
 			player.lock_tracking = Vector2(-1, -1)
 		
 		if !lock.is_visible():
@@ -48,13 +48,11 @@ func _ready():
 	set_process(true)
 	set_gravity_scale(0)
 	set_process_input(true)
-
 	sprite.play("idle")
-	pass
+	initial_pos = get_global_pos()
+
 
 func move_towards(location):
-	location += offset
-	
 	if health > 0:
 		if sprite.get_animation() != "atk" and sprite.get_animation() != "grunt":
 			sprite.play("walk")

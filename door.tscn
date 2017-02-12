@@ -30,7 +30,7 @@ polygon = Vector2Array( -8, -16, -8, 30 )
 [sub_resource type="ConvexPolygonShape2D" id=5]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -8, -4, 8, -4, 8, 22, -8, 22 )
+points = Vector2Array( -18, -4, 8, -4, 8, 24, -18, 24 )
 
 [node name="door" type="Node2D" groups=[ "door" ]]
 
@@ -120,7 +120,7 @@ angular_damp = 1.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InteractArea"]
 
 build_mode = 0
-polygon = Vector2Array( -8, -4, 8, -4, 8, 22, -8, 22 )
+polygon = Vector2Array( -18, -4, 8, -4, 8, 24, -18, 24 )
 shape_range = Vector2( 0, 0 )
 trigger = false
 

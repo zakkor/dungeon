@@ -31,7 +31,7 @@ script/script = ExtResource( 1 )
 visibility/visible = false
 frames = SubResource( 3 )
 animation = "burn"
-frame = 2
+frame = 1
 playing = true
 
 [node name="StaticSprite" type="Sprite" parent="."]
@@ -45,9 +45,9 @@ enabled = true
 editor_only = false
 texture = ExtResource( 11 )
 offset = Vector2( 0, 0 )
-scale = 2.45
-color = Color( 0.851563, 0.60915, 0.146362, 1 )
-energy = 1.0
+scale = 2.0
+color = Color( 0.871094, 0.485763, 0.112289, 1 )
+energy = 3.67
 mode = 0
 range/height = 0.0
 range/z_min = -1024
